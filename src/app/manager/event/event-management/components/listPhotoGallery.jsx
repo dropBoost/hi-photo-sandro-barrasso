@@ -1,0 +1,113 @@
+"use client";
+
+import { useState, useTransition } from "react";
+import DeleteGalleryPhotoButton from "@/components/deletePhoto/deleteGalleryPhotoButton";
+import Image from "next/image";
+import UpdateBooleanSwitch from "@/components/updatePhoto/swtichUpdatePhotoBool";
+import { Button } from "@/components/ui/button";
+import { moveEventPhotoOrderAction } from "../action/updateEventPhotoOrder.action";
+
+export default function ListPhotoGallery({ photo, bucket, setUpdate, tablePhoto }) {
+  const [msg, setMsg] = useState("");
+  const [isPending, startTransition] = useTransition();
+
+  function publicUrl(path) {
+    if (!path) return null;
+    const domain = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    if (!domain) return null;
+    return `${domain}/storage/v1/object/public/${bucket}/${path}`;
+  }
+
+  function handleDeletedPhoto() {
+    setUpdate((prev) => prev + 1);
+  }
+
+  function handleUpdatedSwitch() {
+    setUpdate((prev) => prev + 1);
+  }
+
+  function handleMove(uuid, direction) {
+    setMsg("");
+
+    startTransition(async () => {
+      let res = null;
+
+      if (tablePhoto === "event_photo") {
+        res = await moveEventPhotoOrderAction({ uuid, direction });
+      } else {
+        setMsg("Riordino non configurato per questa tabella.");
+        return;
+      }
+
+      if (!res?.success) {
+        setMsg(res?.error || "Errore durante il riordino");
+        return;
+      }
+
+      setUpdate((prev) => prev + 1);
+    });
+  }
+
+  return (
+    <>
+      {msg ? <div className="mb-3 text-sm text-red-500">{msg}</div> : null}
+
+      <div className="grid xl:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-3">
+        {photo?.map((p, index) => (
+          <div className="flex flex-col border rounded-md p-3 gap-3" key={p.uuid}>
+            <Image
+              className="w-full aspect-square object-cover rounded-md"
+              src={publicUrl(p.link)}
+              width={300}
+              height={300}
+              quality={75}
+              alt=""
+            />
+
+            <div className="text-xs opacity-70">
+              Ordine: {p.order}
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              <Button
+                type="button"
+                variant="outline"
+                disabled={isPending || index === 0}
+                onClick={() => handleMove(p.uuid, "up")}
+              >
+                Su
+              </Button>
+
+              <Button
+                type="button"
+                variant="outline"
+                disabled={isPending || index === photo.length - 1}
+                onClick={() => handleMove(p.uuid, "down")}
+              >
+                Giù
+              </Button>
+            </div>
+
+            <div className="flex flex-row justify-between p-3">
+              <DeleteGalleryPhotoButton
+                uuid={p.uuid}
+                uuidEvent={p.uuid_event}
+                link={p.link}
+                bucket={bucket}
+                tablePhoto="event_photo"
+                onDeleted={() => handleDeletedPhoto()}
+              />
+              <UpdateBooleanSwitch
+                table={tablePhoto}
+                field="cover"
+                uuid={p.uuid}
+                value={p.cover}
+                onUpdated={handleUpdatedSwitch}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
