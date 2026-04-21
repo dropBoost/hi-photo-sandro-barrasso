@@ -57,13 +57,13 @@ export default function COMPListCategory() {
         return (
           <div key={cat.id} className="flex flex-col items-center border rounded-2xl w-full gap-4 p-5 text-sm">
             <div className="flex flex-row items-center justify-end gap-2 w-full">
-                  <BooleanSwitchCell
-                    tableName="category"
-                    idColumn="id"
-                    idValue={cat.id}
-                    fieldName="active"
-                    initialValue={cat.active}
-                  />
+              <BooleanSwitchCell
+                tableName="category"
+                idColumn="id"
+                idValue={cat.id}
+                fieldName="active"
+                initialValue={cat.active}
+              />
             </div>
             <div className="w-full border">
               {cat.img_cover ? (
