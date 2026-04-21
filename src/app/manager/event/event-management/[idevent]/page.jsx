@@ -115,7 +115,7 @@ export default function PAGEeventGallery() {
       <div className="flex flex-col gap-3 justify-start bg-neutral-200 font-sans dark:bg-neutral-900 w-full h-full p-5 rounded-xl">
         <div className="flex flex-row justify-between items-center">
           <h3 className="text-white">{event?.title}</h3>
-          <QrCodeDownloadOnly link={`${process.env.NEXT_PUBLIC_SITE_URL}/event/wdg/${event.uuid}`} fileName={`${event.title}-${event.event_date}-${event.uuid}`}/>
+          <QrCodeDownloadOnly link={`${process.env.NEXT_PUBLIC_SITE_URL}/event/${event.uuid}`} fileName={`${event.title}-${event.event_date}-${event.uuid}`}/>
         </div>
         
         <Separator/>

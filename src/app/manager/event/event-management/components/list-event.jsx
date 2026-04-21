@@ -197,7 +197,7 @@ export default function COMPlistEvent() {
 
                 <CardFooter className={`flex flex-row gap-1 items-center justify-between`}>
                   <div className="">
-                  <QrCodeDownloadOnly link={`${process.env.NEXT_PUBLIC_SITE_URL}/event/wdg/${g.uuid}`} fileName={`${g.title}-${g.event_date}-${g.uuid}`}/>
+                  <QrCodeDownloadOnly link={`${process.env.NEXT_PUBLIC_SITE_URL}/event/${g.uuid}`} fileName={`${g.title}-${g.event_date}-${g.uuid}`}/>
                   </div>
                   <div className="flex flex-row gap-2">
                   <Link  href={`${pathname}/${g.uuid}`}>
