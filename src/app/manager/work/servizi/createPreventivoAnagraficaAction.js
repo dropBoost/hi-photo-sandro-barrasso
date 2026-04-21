@@ -30,7 +30,7 @@ export async function createPreventivoAnagraficaAction(payload) {
     return { success: false, error: error.message };
   }
 
-  revalidatePath("/manager/preventivi");
+  revalidatePath("/manager/servizis");
 
   return { success: true };
 }

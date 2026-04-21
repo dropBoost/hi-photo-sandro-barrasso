@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/utils/supabase/server";
-import LogoutButton from "@/app/(site)/admin/user/LogoutButton";
-import UserInfo from "@/app/(site)/admin/user/UserInfo";
+import LogoutButton from "@/app/admin/user/LogoutButton";
+import UserInfo from "@/app/admin/user/UserInfo";
 
 export default async function PAGETest() {
   const supabase = await createSupabaseServerClient();
