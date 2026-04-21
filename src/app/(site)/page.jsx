@@ -11,7 +11,7 @@ import FormSiteContact from "./contact/formSiteContact";
 export default async function PAGEHome() {
 
   const settings= await getSettings()
-
+    
   return (
     <div className="flex min-h-screen items-center justify-centerfont-sans">
       <main className="flex min-h-screen w-full flex-col items-center">

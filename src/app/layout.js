@@ -3,7 +3,9 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import { Toaster } from "sonner";
 import "./globals.css";
 import { getSettings } from "@/lib/setting";
+
 import { SettingsProvider } from "@/settings/settingsProvider";
+import { Separator } from "@/components/ui/separator";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
