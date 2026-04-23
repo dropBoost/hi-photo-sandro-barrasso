@@ -4,15 +4,21 @@ import { TbCashRegister } from "react-icons/tb";
 import { LuNotebookTabs } from "react-icons/lu";
 import { MdOutlineAssignment } from "react-icons/md";
 import { IoIosSettings } from "react-icons/io";
+import { createSupabaseServerClient } from "@/utils/supabase/server";
+import { getSettings } from "@/lib/setting";
+import { FaWhatsappSquare, FaPhoneSquareAlt, FaEnvelope, FaInstagramSquare, FaFacebookSquare, FaTiktok } from "react-icons/fa";
+
 
 //ICONE SOCIAL
 
-// const ICONfacebook = <FacebookIcon/>
-// const ICONwhatsApp = <FaWhatsappSquare/>
-// const ICONtikTok = <AiFillTikTok />
-// const ICONinstagram = <FaInstagramSquare/>
-// const ICONtel = <FaPhoneSquareAlt/>
-// const ICONemail = <FaEnvelope/>
+const iconMap = {
+  socialFacebook: <FaFacebookSquare/>,
+  socialInstagram: <FaInstagramSquare />,
+  socialTikTok: <FaTiktok />,
+  socialMail: <FaEnvelope />,
+  socialWhatsapp: <FaWhatsappSquare/>,
+  socialTel: <FaPhoneSquareAlt />,
+};
 
 // FOOTER SIGN
 
@@ -108,4 +114,3 @@ export const navManager = [
     level: ["admin", "superadmin"],
   },
 ];
-

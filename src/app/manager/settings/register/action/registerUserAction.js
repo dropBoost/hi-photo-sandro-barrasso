@@ -34,9 +34,9 @@ export async function registerUserAction(prevState, formData) {
       };
     }
 
-    const supabaseAdmin = createClient(
+    const supabase = createClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL,
-      process.env.SUPABASE_SERVICE_ROLE_KEY,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
       {
         auth: {
           autoRefreshToken: false,
@@ -45,16 +45,17 @@ export async function registerUserAction(prevState, formData) {
       }
     );
 
-    const { error } = await supabaseAdmin.auth.admin.createUser({
+    const { data, error } = await supabase.auth.signUp({
       email,
-      phone,
       password,
-      email_confirm: false,
-      user_metadata: {
-        name,
-        surname,
-        phone,
-        role,
+      options: {
+        emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`,
+        data: {
+          name,
+          surname,
+          phone,
+          role,
+        },
       },
     });
 
@@ -69,8 +70,8 @@ export async function registerUserAction(prevState, formData) {
 
     return {
       success: true,
-      message:
-        "Utente creato correttamente. Deve verificare la mail prima di essere inserito nella tabella utenti.",
+      message: "Registrazione completata. Controlla la tua email per confermare l'account.",
+      data,
     };
   } catch (error) {
     return {
