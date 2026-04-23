@@ -15,6 +15,10 @@ const nextConfig = {
         pathname: "/storage/v1/object/public/**",
       },
     ],
+    minimumCacheTTL: 2678400, // 31 giorni
+    deviceSizes: [640, 768, 1024, 1280, 1536],
+    imageSizes: [32, 64, 128, 256, 384],
+    qualities: [60, 75],
   },
 };
 

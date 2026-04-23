@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/utils/supabase/server";
 
 export async function loginAction(prevState, formData) {
+  
   const email = formData.get("email")?.toString().trim().toLowerCase();
   const password = formData.get("password")?.toString().trim();
 
