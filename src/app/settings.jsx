@@ -4,10 +4,7 @@ import { TbCashRegister } from "react-icons/tb";
 import { LuNotebookTabs } from "react-icons/lu";
 import { MdOutlineAssignment } from "react-icons/md";
 import { IoIosSettings } from "react-icons/io";
-import { createSupabaseServerClient } from "@/utils/supabase/server";
-import { getSettings } from "@/lib/setting";
 import { FaWhatsappSquare, FaPhoneSquareAlt, FaEnvelope, FaInstagramSquare, FaFacebookSquare, FaTiktok } from "react-icons/fa";
-
 
 //ICONE SOCIAL
 
