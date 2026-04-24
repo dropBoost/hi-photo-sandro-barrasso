@@ -7,7 +7,7 @@ export function DialogNeutral({label="apri", data, description="", title="", clo
         <DialogTrigger asChild>
           <Button className={`text-[0.6rem] p-2 h-fit uppercase`}>{label}</Button>
         </DialogTrigger>
-        <DialogContent className={`${className} !max-w-none`}>
+        <DialogContent className={`${className} max-w-none!`}>
           <DialogHeader>
             <DialogTitle>{title}</DialogTitle>
             <DialogDescription>
