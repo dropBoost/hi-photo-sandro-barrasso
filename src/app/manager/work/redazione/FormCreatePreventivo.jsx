@@ -144,7 +144,7 @@ export default function FormCreatePreventivo() {
   }
 
   return (
-    <Card className="w-full max-w-4xl rounded-2xl">
+    <Card className="rounded-2xl shadow-none">
       <CardHeader>
         <CardTitle>Nuovo preventivo</CardTitle>
         <CardDescription>
@@ -154,7 +154,7 @@ export default function FormCreatePreventivo() {
 
       <CardContent>
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid grid-cols-2 gap-2">
             <div className="grid gap-2 md:col-span-2">
               <Label htmlFor="cliente">Cliente</Label>
 
@@ -270,7 +270,7 @@ export default function FormCreatePreventivo() {
                 onChange={(e) => setField("location_citta", e.target.value)}
               />
             </div>
-
+                        
             <div className="grid gap-2">
               <Label htmlFor="evento">Evento</Label>
               <Select

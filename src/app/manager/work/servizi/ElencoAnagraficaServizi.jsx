@@ -5,6 +5,7 @@ import { createSupabaseBrowserClient } from "@/utils/supabase/client";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import DeleteSingleRecordButton from "@/components/deleteRecord/DeleteSingleRecordButton";
+import { Button } from "@/components/ui/button";
 
 export default function ElencoAnagraficaServizi() {
   const [records, setRecords] = useState([]);
@@ -39,7 +40,7 @@ export default function ElencoAnagraficaServizi() {
 
   if (loading) {
     return (
-      <div className="flex w-full items-center justify-center rounded-xl border p-6">
+      <div className="flex w-full items-center justify-center rounded-xl border">
         <span className="text-sm text-muted-foreground">
           Caricamento servizi...
         </span>
@@ -64,26 +65,29 @@ export default function ElencoAnagraficaServizi() {
   }
 
   return (
-    <div className="flex flex-wrap">
-      {records.map((item) => (
-        <div key={item.uuid || `${item.nome_servizio}-${item.categoria}`} className="flex flex-row basis-2/6 p-2">
-          <div className="flex flex-col gap-6 items-start justify-between w-full h-full border rounded-2xl p-5">
-            <div className="flex flex-col items-start w-full gap-2">
-              <div className="flex flex-col items-start justify-start gap-1">
-                <Badge variant="secondary">{item.categoria}</Badge>
-                <p className="font-semibold runcate overflow-hidden">{item.nome_servizio}</p>
+    <div className="flex flex-col gap-3">
+      <Button onClick={() => setUpdate(count => count+1)} className={`w-fit text-[0.6rem] p-2 h-fit bg-brand hover:bg-brand/50 uppercase`}>Aggiorna</Button>
+      <div className="grid 2xl:grid-cols-2 gap-3">
+        {records.map((item) => (
+          <div key={item.uuid || `${item.nome_servizio}-${item.categoria}`} className="flex flex-row border rounded-2xl p-3 bg-neutral-50 dark:bg-neutral-900">
+            <div className="flex flex-col gap-2 items-start justify-between w-full h-full">
+              <div className="flex flex-col items-start w-full gap-1">
+                <div className="flex flex-col items-start justify-start gap-1">
+                  <Badge className={`bg-brand text-[0.6rem]`}>{item.categoria}</Badge>
+                  <p className="font-semibold runcate overflow-hidden">{item.nome_servizio}</p>
+                </div>
+                <Separator/>
+                <div className="text-sm max-h-70 text-muted-foreground whitespace-pre-line overflow-auto pe-5 text-justify">
+                  {item.descrizione || "Nessuna descrizione disponibile."}
+                </div>
               </div>
-              <Separator/>
-              <div className="text-sm max-h-70 text-muted-foreground whitespace-pre-line overflow-auto pe-5 text-justify">
-                {item.descrizione || "Nessuna descrizione disponibile."}
+              <div className={`flex flex-row justify-end w-full px-3 py-1`}>
+                <DeleteSingleRecordButton tableName={"preventivi_servizi"} columnName={"id"} uuid={item.id} setUpdate={setUpdate}/>
               </div>
-            </div>
-            <div className={`flex flex-row justify-end w-full px-3 py-1`}>
-              <DeleteSingleRecordButton tableName={"preventivi_servizi"} columnName={"id"} uuid={item.id} setUpdate={setUpdate}/>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

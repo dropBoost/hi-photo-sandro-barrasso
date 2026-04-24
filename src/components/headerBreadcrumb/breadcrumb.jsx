@@ -4,6 +4,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbP
 import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Separator } from "@/components/ui/separator"
 import { usePathname } from "next/navigation"
+import { ToggleDarkMode } from "../ui/toggle-dark-mode"
 
 export default function BreadcrumbCOMP ({label}) {
 
@@ -12,7 +13,8 @@ export default function BreadcrumbCOMP ({label}) {
 
   return (
 
-    <div className="flex items-center gap-2 px-4">
+    <div className="flex items-center justify-between gap-2 px-4">
+      <div className="flex items-center gap-2">
       <SidebarTrigger className="-ml-1" />
       <Separator orientation="vertical" className="mr-2 data-[orientation=vertical]:h-4" />
       <Breadcrumb>
@@ -23,6 +25,8 @@ export default function BreadcrumbCOMP ({label}) {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
+      </div>
+      <ToggleDarkMode/>
     </div>
   )
 }

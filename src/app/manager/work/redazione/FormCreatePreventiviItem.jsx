@@ -56,7 +56,7 @@ export default function FormCreatePreventiviItem({ preventivi = [], servizi = []
   }
 
   return (
-    <Card className="w-full max-w-2xl">
+    <Card className="w-full max-w-2xl shadow-none">
       <CardHeader>
         <CardTitle>Nuova voce preventivo</CardTitle>
       </CardHeader>

@@ -174,7 +174,7 @@ export default function ElencoPreventiviRaggruppati() {
             <div className="flex lg:flex-row flex-col gap-2" key={idPreventivo}>
               <Link
                 href={`/manager/work/preventivi/${idPreventivo}`}
-                className="flex-1 block rounded-xl border p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-neutral-400 hover:shadow-md"
+                className="flex-1 block rounded-xl border p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-neutral-400 hover:shadow-md bg-white dark:bg-neutral-900"
               >
                 <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
                   <div className="min-w-0 flex-1">

@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import YouTubePlayer from "@/components/youtubePlayer";
 import DeleteSingleRecordButton from "@/components/deleteRecord/DeleteSingleRecordButton";
 import FormUpdateCategory from "@/components/updateCategory/FormUpdateCategory";
+import { Separator } from "@/components/ui/separator";
 
 export default function PAGEcategory() {
 
@@ -47,13 +48,13 @@ export default function PAGEcategory() {
   }, [category]);
   
   return (
-    <div className="flex flex-col items-start justify-start gap-4 bg-neutral-200 font-sans dark:bg-neutral-950 w-full h-full p-5">
+    <div className="flex flex-col items-start justify-start gap-4 bg-neutral-300 dark:bg-neutral-950 w-full h-full p-5 rounded-2xl">
       <div className="flex flex-row items-center gap-3 w-full">
-        <span>CATEGORY {category} </span>
+        <span className="text-xs uppercase font-bold">CATEGORY {category} </span>
       </div>
-
-      <div className="flex flex-col justify-start bg-neutral-200 font-sans dark:bg-neutral-900 w-full h-full p-5 rounded-xl">
-        <h3 className="text-white">{categoryData?.alias}</h3>
+      <Separator/>
+      <div className="flex flex-col justify-start bg-neutral-200 dark:bg-neutral-900 w-full h-full p-5 rounded-xl">
+        <h3 className="dark:text-white text-xs uppercase">{categoryData?.alias}</h3>
         <p className="text-red-500 text-sm">{errorCategory}</p>
       </div>
       <FormUpdateCategory category={categoryData}/>

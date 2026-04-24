@@ -8,6 +8,7 @@ import { NavUser } from "@/components/nav-user"
 import { FaCircle } from "react-icons/fa";
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail, SidebarMenu, SidebarMenuItem, SidebarMenuButton } from "@/components/ui/sidebar"
 import Image from "next/image"
+import { ToggleDarkMode } from "./ui/toggle-dark-mode"
 
 const data = {
   softwareDrop: [

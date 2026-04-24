@@ -67,7 +67,7 @@ export default function COMPelencoClientiAnagrafica() {
   }, [clienti, search]);
 
   return (
-    <div className="flex flex-col gap-3 w-full rounded-2xl border-border/60 shadow-sm">
+    <div className="flex flex-col gap-3 w-full h-full rounded-2xl border-border/60">
       <div className="space-y-4">
         <div className="flex flex-row items-center justify-between">
           <span className="text-lg uppercase font-bold">Clienti anagrafica</span>
@@ -107,7 +107,7 @@ export default function COMPelencoClientiAnagrafica() {
             <div className="flex flex-col gap-3">
               {clientiFiltrati.map((cliente) => (
                 <div key={cliente.id} className="flex flex-row gap-2 border-border/60 shadow-sm transition hover:shadow-md">
-                  <div className="flex xl:flex-row flex-col flex-1 xl:gap-4 gap-2 xl:items-center justify-start border px-3 py-2 rounded-md">
+                  <div className="flex xl:flex-row flex-col flex-1 xl:gap-4 gap-2 xl:items-center justify-start border px-3 py-2 rounded-md hover:bg-muted transition-all">
                     {/* NOMINATIVO */}
                     <div className="flex flex-row xl:w-60 w-fit xl:items-start items-center gap-3">
                       <h3 className="truncate text-base font-semibold text-foreground">

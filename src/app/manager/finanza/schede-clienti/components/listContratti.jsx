@@ -127,7 +127,7 @@ export default function ListContrattiAcc() {
             <div className="flex lg:flex-row flex-col gap-2" key={idPreventivo}>
               <Link
                 href={`/manager/finanza/schede-clienti/${idPreventivo}`}
-                className="flex-1 block rounded-xl border p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-neutral-400 hover:shadow-md"
+                className="flex-1 block rounded-xl border p-4 shadow-sm transition hover:-translate-y-0.5 bg-neutral-100 dark:bg-neutral-950 hover:border-neutral-400 hover:shadow-md"
               >
                 <div className="flex flex-col gap-3 lg:items-start lg:justify-between">
                   <div className="flex flex-col gap-2">

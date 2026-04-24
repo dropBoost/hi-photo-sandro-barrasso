@@ -13,7 +13,7 @@ export default function PAGEaddPhoto() {
         <Separator/>
         <COMPuploadPhotoGallery />
       </div>
-      <div className="flex flex-col gap-4 p-8 basis-3/6 bg-neutral-900 rounded-xl">
+      <div className="flex flex-col gap-4 p-8 basis-3/6 dark:bg-neutral-900 bg-neutral-300 rounded-xl">
         <h3 className="font-bold">AGGIUNGI VIDEO</h3>
         <Separator/>
         <COMPuploadLinkVideo />

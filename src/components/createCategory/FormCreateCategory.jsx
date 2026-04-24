@@ -76,7 +76,7 @@ export default function FormCreateCategory() {
   return (
     <form
       action={handleSubmit}
-      className="w-full space-y-6 rounded-2xl border p-6 shadow-sm"
+      className="w-full space-y-6 rounded-2xl border p-6 dark:shadow-sm bg-neutral-100 dark:bg-neutral-900"
     >
       <div className="grid gap-2">
         <Label htmlFor="alias">Alias</Label>

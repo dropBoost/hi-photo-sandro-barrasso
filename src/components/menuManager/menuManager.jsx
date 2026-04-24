@@ -8,10 +8,10 @@ export default function COMPmenuManager () {
 
   return (
     <>
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-wrap gap-5">
       {navManager && navManager.map((m, i) => {
         return (
-          <div key={i} className="flex flex-col gap-2 p-5 rounded-lg bg-neutral-900">
+          <div key={i} className="flex flex-col gap-2 p-5 rounded-lg dark:bg-neutral-900 bg-white hover:bg-brand transition-all">
             <span className="flex flex-row items-center gap-1 uppercase font-medium">
             {m.icon()}{m.title}
             </span>
@@ -19,7 +19,7 @@ export default function COMPmenuManager () {
             <div className="flex flex-wrap gap-1">
               {m.items && m.items.map((items, i) => {
                 return (
-                  <Link href={items.url} key={i+1} className="px-3 py-1 rounded-lg hover:bg-muted text-xs truncate bg-neutral-950">
+                  <Link href={items.url} key={i+1} className="px-3 py-1 rounded-lg hover:bg-muted text-xs truncate dark:bg-neutral-950 bg-neutral-200">
                     {items.title}
                   </Link>
                 )

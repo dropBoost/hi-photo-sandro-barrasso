@@ -34,7 +34,7 @@ export default function DeleteCategoryButton({ id, setUpdate, className = "", di
             variant="ghost"
             size="xs"
             disabled={isPending || disabled}
-            className={`border-brand/30 text-brand hover:bg-brand hover:text-white disabled:opacity-50 ${className}`}
+            className={`bg-red-700 hover:bg-red-800 hover:text-white text-white disabled:opacity-50 aspect-square ${className}`}
           >            
           {isPending ? "Eliminazione..." : <FaTrash className="h-4 w-4" />}
           </Button>

@@ -11,6 +11,7 @@ import { FaPencilAlt, FaCircle } from "react-icons/fa";
 import { createSupabaseBrowserClient } from "@/utils/supabase/client";
 import DeleteMotherContentButton from "@/components/deleteGallery/DeleteMotherContentButton";
 import { FormatDate } from "@/components/formatDate";
+import { Separator } from "@/components/ui/separator";
 
 const BUCKET = "photogallery";
 
@@ -104,7 +105,7 @@ export default function COMPlistGallery() {
   return (
     <div className="space-y-4">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <h2 className="text-lg font-semibold">ELENCO ALBUM CREATI</h2>
+        <h2 className="text-xs font-semibold">ELENCO ALBUM CREATI</h2>
 
         <div className="w-full sm:w-[320px]">
           <Input
@@ -114,7 +115,7 @@ export default function COMPlistGallery() {
           />
         </div>
       </div>
-
+      <Separator/>
       {filtered.length === 0 ? (
         <div>Nessuna gallery trovata</div>
       ) : (

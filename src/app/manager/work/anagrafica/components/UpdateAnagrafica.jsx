@@ -104,8 +104,8 @@ export default function COMPupdateAnagrafica({ data, setOnUpdate }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="icon" size="xs" className={`bg-muted hover:bg-amber-600`}>
-          <Pencil className="text-yellow-500"/>
+        <Button variant="icon" size="xs" className={`bg-amber-600 hover:bg-amber-700`}>
+          <Pencil className="text-neutral-100"/>
         </Button>
       </DialogTrigger>
 
