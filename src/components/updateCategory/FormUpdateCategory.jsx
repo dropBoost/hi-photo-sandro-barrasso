@@ -219,7 +219,7 @@ export default function FormUpdateCategory({ category }) {
                 value={color}
                 onChange={(e) => setColor(e.target.value)}
                 placeholder="#000000"
-                className="max-w-[180px]"
+                className="max-w-45"
               />
             </div>
           </div>
