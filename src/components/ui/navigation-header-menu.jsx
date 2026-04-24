@@ -33,9 +33,9 @@ export async function NavigationHeaderMenu() {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <button type="button" className="cursor-pointer">
+        <span className={`text-brand`}>
           <FaBars />
-        </button>
+        </span>
       </DrawerTrigger>
 
       <DrawerContent className="h-screen max-h-screen rounded-none">
@@ -58,7 +58,7 @@ export async function NavigationHeaderMenu() {
                 href={s.link}
                 target="_blank"
                 rel="noreferrer"
-                className="flex flex-row items-center gap-2 text-xl transition-all hover:text-brand"
+                className="flex flex-row items-center gap-2 text-xl transition-all text-neutral-500 hover:text-brand"
               >
                 <span>{s.icon}</span>
               </a>
@@ -72,7 +72,7 @@ export async function NavigationHeaderMenu() {
               <DrawerClose asChild key={c.id}>
                 <Link
                   href={`/portfolio/${c.id}`}
-                  className="w-fit uppercase text-neutral-300 transition-all hover:text-brand text-6xl"
+                  className="w-fit uppercase text-neutral-500 dark:text-neutral-300 transition-all hover:text-brand text-6xl"
                 >
                   {c.alias}
                 </Link>
@@ -86,7 +86,7 @@ export async function NavigationHeaderMenu() {
             <DrawerClose asChild>
               <Link
                 href="/about"
-                className="w-fit text-2xl uppercase text-neutral-300 transition-all hover:text-brand"
+                className="w-fit text-2xl uppercase text-neutral-500 dark:text-neutral-300 transition-all hover:text-brand"
               >
                 ABOUT US
               </Link>
@@ -95,7 +95,7 @@ export async function NavigationHeaderMenu() {
             <DrawerClose asChild>
               <Link
                 href="/event"
-                className="w-fit text-2xl uppercase text-neutral-300 transition-all hover:text-brand"
+                className="w-fit text-2xl uppercase text-neutral-500 dark:text-neutral-300 transition-all hover:text-brand"
               >
                 EVENT
               </Link>

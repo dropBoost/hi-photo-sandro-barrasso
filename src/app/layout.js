@@ -41,7 +41,7 @@ export default async function RootLayout({ children }) {
     <html lang={s?.language || "it"} suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} style={{ "--brand": brand, "--brand-foreground": brandForeground }}>
         <SettingsProvider initialSettings={s}>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={"false"} disableTransitionOnChange>
             {children}
           </ThemeProvider>
         </SettingsProvider>

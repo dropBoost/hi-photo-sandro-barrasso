@@ -122,6 +122,36 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* Scrollbar generale */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Sfondo della scrollbar */
+::-webkit-scrollbar-track {
+  background: #222222;
+}
+
+/* Barra che si muove */
+::-webkit-scrollbar-thumb {
+  background: var(--brand);
+  border-radius: 0px;
+}
+
+/* Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #222222;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: large;
+  scrollbar-color: var(--brand) transparent;
+}
+
+
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -130,3 +160,4 @@
     @apply bg-background text-foreground;
   }
 }
+

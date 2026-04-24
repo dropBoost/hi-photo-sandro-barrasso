@@ -48,11 +48,14 @@ export default async function PAGEHome() {
           <div className="flex flex-col items-start justify-start gap-3">
             <COMPeventHomePage settings={settings}/>
           </div>
-          <div className="flex flex-row items-center gap-3">
+
+        </div>
+        <div className="flex flex-col items-center justify-center bg-neutral-300  border w-full lg:p-10 p-5 gap-6">
+          <div className="flex flex-row items-center gap-3 w-full max-w-7xl">
             <Label className={`bg-brand text-white px-2 py-1 text-xs font-extralight`}>CONTATTACI</Label>
             <Separator className="flex-1" />
           </div>
-          <div className="min-h-139 flex lg:flex-row flex-col bg-white dark:text-neutral-950 text-neutral-600 border text-sm rounded-md gap-3">
+          <div className="min-h-139 flex lg:flex-row flex-col w-full max-w-7xl bg-neutral-100 dark:text-neutral-950 text-neutral-600 border text-sm rounded-md gap-3 lg:p-5">
             <div className="lg:order-1 order-2 lg:basis-3/6 basis-2/6">
               <GoogleMap address={`${ settings?.aboutMaps }`}/>
             </div>

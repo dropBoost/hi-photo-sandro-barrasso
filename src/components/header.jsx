@@ -15,8 +15,8 @@ export default async function Header () {
             <Image src={s?.logo} width={50} height={50} quality={75} alt="logo" className="h-10"/>
           <div className="flex flex-row gap-2">
             <span className="text-xs font-bold text-brand">{s?.companyName}</span>
-            {s?.payoff ? <span className="text-xs font-extralight uppercase">/</span> : null}
-            {s?.payoff ? <span className="text-xs font-extralight uppercase">{s?.payoff}</span> : null}
+            {s?.payoff ? <span className="text-xs font-extralight uppercase text-neutral-200">/</span> : null}
+            {s?.payoff ? <span className="text-xs font-extralight uppercase text-neutral-200">{s?.payoff}</span> : null}
           </div>
         </div>
       </Link>
