@@ -82,7 +82,7 @@ export async function NavigationHeaderMenu() {
 
           <Separator className="m-0 p-0" />
 
-          <div className="flex w-fit flex-col overflow-y-auto">
+          <div className="flex w-fit flex-col">
             <DrawerClose asChild>
               <Link
                 href="/about"
