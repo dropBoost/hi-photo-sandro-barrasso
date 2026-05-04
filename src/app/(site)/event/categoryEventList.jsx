@@ -5,7 +5,6 @@ import { createSupabaseBrowserClient } from "@/utils/supabase/client";
 import Link from "next/link";
 import { PiHandTap } from "react-icons/pi";
 import { Badge } from "@/components/ui/badge";
-import { BadgeCheck } from "lucide-react";
 import { TbMoodCry } from "react-icons/tb";
 
 export default function COMPcategoryEventList({ settings, selectedDate, selectedCategory }) {
@@ -107,13 +106,13 @@ export default function COMPcategoryEventList({ settings, selectedDate, selected
   return (
     <>
       {albumList.length > 0 ? (
-        <div className="grid w-full max-w-7xl grid-cols-2 gap-3 md:grid-cols-3 p-5">
+        <div className="grid w-full max-w-7xl grid-cols-2 gap-3 md:grid-cols-3 p-5 min-h-200">
           {albumList?.map((g) => {
             const coverOk = coverList?.find((c) => c.uuid_event == g.uuid);
             const coverUrl = publicUrl(coverOk?.link);
 
             return (
-              <Link className="group relative block" key={g?.uuid} href={`/event/${g?.uuid}`}>
+              <Link className="group relative block h-fit" key={g?.uuid} href={`/event/${g?.uuid}`}>
                 <div className="p-5 border rounded-sm">
                   {/* IMMAGINE BACKGR */}
                   <div

@@ -81,8 +81,7 @@ export default function COMPeventHomePage ( { settings } ) {
         const cover = publicUrl(coverOk?.link);
 
         return (
-        <Link key={ea?.uuid} href={`/event/${ea?.uuid}`}>
-          <div className="aspect-4/5 flex flex-col gap-2 border p-4 pb-10 rounded-md hover:border-brand transition-all h-full">
+        <Link key={ea?.uuid} href={`/event/${ea?.uuid}`} className="aspect-4/5 flex flex-col gap-2 border p-4 pb-10 rounded-md hover:border-brand transition-all h-full max-w-full">
             <div className={`flex flex-col items-end flex-1 bg-cover bg-center bg-no-repeat p-3`} style={{ backgroundImage: `url("${cover}")` }}>
               <span className={`text-[0.6rem] rounded-full px-2 py-1`} style={{ background: `${ea?.category?.color}` }}>{ea?.category?.alias}</span>
             </div>
@@ -96,14 +95,11 @@ export default function COMPeventHomePage ( { settings } ) {
                 <span className="text-xs text-neutral-500 italic">{ea?.event_date}</span>
               </div>
             </div>
-          </div>
         </Link>
       )})}
-      <Link href={`/event`}>
-        <div className="aspect-4/5 flex flex-col gap-2 bg-brand p-4 rounded-md h-full">
-          <div className="flex flex-row items-center justify-start h-full">
-            <span className="flex items-center gap-2 text-xs hover:border-b border-neutral-50 transition-all p-1 text-white"><FaArrowRight className="text-[0.6rem]"/> vedi tutti gli eventi</span>
-          </div>
+      <Link href={`/event`} className="aspect-4/5 flex flex-col gap-2 bg-brand p-4 rounded-md h-full max-w-full">
+        <div className="flex flex-row items-center justify-start h-full">
+          <span className="flex items-center gap-2 text-xs hover:border-b border-neutral-50 transition-all p-1 text-white"><FaArrowRight className="text-[0.6rem]"/> vedi tutti gli eventi</span>
         </div>
       </Link>
     </div>

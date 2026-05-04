@@ -12,7 +12,7 @@ export default async function PAGEEventCategory({ searchParams }) {
 
   return (
     <>
-      <div className="flex h-full w-full flex-col items-center justify-start bg-neutral-200 font-sans dark:bg-neutral-950">
+      <div className="flex h-full w-full flex-col items-center justify-start bg-neutral-100 font-sans dark:bg-neutral-950">
         <div className="flex flex-col items-center py-10 bg-brand w-full">
           <span className="uppercase font-extralight tracking-[1em]">
             EVENT GALLERY
@@ -23,7 +23,7 @@ export default async function PAGEEventCategory({ searchParams }) {
           <FilterBar />
         </div>
 
-        <Separator className="max-w-7xl bg-neutral-900" />
+        <Separator className="max-w-7xl dark:bg-neutral-900 bg-neutral-300" />
 
         <COMPcategoryEventList
           settings={settings}
