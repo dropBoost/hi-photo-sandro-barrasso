@@ -74,7 +74,7 @@ export default function COMPeventHomePage ( { settings } ) {
 
   return (
     <>
-    <div className="grid md:grid-cols-4 grid-cols-2 gap-4 w-full">
+    <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 w-full">
       {event.map(ea => {
 
         const coverOk = coverList.find(c => c.uuid_event == ea.uuid)
@@ -85,11 +85,11 @@ export default function COMPeventHomePage ( { settings } ) {
             <div className={`flex flex-col items-end flex-1 bg-cover bg-center bg-no-repeat p-3`} style={{ backgroundImage: `url("${cover}")` }}>
               <span className={`text-[0.6rem] rounded-full px-2 py-1`} style={{ background: `${ea?.category?.color}` }}>{ea?.category?.alias}</span>
             </div>
-            <div className={`flex flex-col p-2 rounded-md`}>
-              <div className="flex flex-row gap-1 items-center">
-                <span className="text-xs text-neutral-300 font-bold">{ea?.title}</span>
-                <span className="text-xs text-neutral-500 italic">-</span>
-                <span className="text-xs text-neutral-500 italic">{ea?.location}</span>
+            <div className={`flex flex-col p-2 rounded-md gap-0 overflow-hidden`}>
+              <div className="flex lg:flex-row flex-col gap-1 lg:items-center items-start">
+                <span className="text-xs dark:text-neutral-300 text-neutral-700 font-bold truncate">{ea?.title}</span>
+                <span className="text-xs text-neutral-500 italic lg:flex hidden truncate">-</span>
+                <span className="text-xs text-neutral-500 italic truncate">{ea?.location}</span>
               </div>
               <div className="flex flex-row gap-1 items-center">
                 <span className="text-xs text-neutral-500 italic">{ea?.event_date}</span>
