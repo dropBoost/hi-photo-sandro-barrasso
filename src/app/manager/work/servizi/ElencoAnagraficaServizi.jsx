@@ -6,12 +6,15 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import DeleteSingleRecordButton from "@/components/deleteRecord/DeleteSingleRecordButton";
 import { Button } from "@/components/ui/button";
+import DownloadSchedaServizio from "@/components/pdfServizio/DownloadSchedaServizio";
+import { useSettings } from "@/settings/settingsProvider";
 
 export default function ElencoAnagraficaServizi() {
   const [records, setRecords] = useState([]);
   const [update, setUpdate] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const settings = useSettings()
 
   useEffect(() => {
     const supabase = createSupabaseBrowserClient();
@@ -70,19 +73,21 @@ export default function ElencoAnagraficaServizi() {
       <div className="grid 2xl:grid-cols-2 gap-3">
         {records.map((item) => (
           <div key={item.uuid || `${item.nome_servizio}-${item.categoria}`} className="flex flex-row border rounded-2xl p-3 bg-neutral-50 dark:bg-neutral-900">
-            <div className="flex flex-col gap-2 items-start justify-between w-full h-full">
+            <div className="flex flex-col gap-3 items-start justify-between w-full h-full">
               <div className="flex flex-col items-start w-full gap-1">
                 <div className="flex flex-col items-start justify-start gap-1">
                   <Badge className={`bg-brand text-[0.6rem]`}>{item.categoria}</Badge>
                   <p className="font-semibold runcate overflow-hidden">{item.nome_servizio}</p>
                 </div>
                 <Separator/>
-                <div className="text-sm max-h-70 text-muted-foreground whitespace-pre-line overflow-auto pe-5 text-justify">
+                <div className="text-sm w-full max-h-70 text-muted-foreground whitespace-pre-line overflow-auto text-justify">
                   {item.descrizione || "Nessuna descrizione disponibile."}
                 </div>
               </div>
-              <div className={`flex flex-row justify-end w-full px-3 py-1`}>
+              <Separator/>
+              <div className={`flex flex-row justify-end w-full px-3 py-1 gap-1`}>
                 <DeleteSingleRecordButton tableName={"preventivi_servizi"} columnName={"id"} uuid={item.id} setUpdate={setUpdate}/>
+                <DownloadSchedaServizio idServizio={item.id} />
               </div>
             </div>
           </div>

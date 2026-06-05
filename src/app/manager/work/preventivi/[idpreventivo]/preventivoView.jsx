@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { createSupabaseBrowserClient } from "@/utils/supabase/client";
+import DownloadPreventivoPdfButton from "@/components/pdfPreventivo/DownloadPreventive";
+import { Separator } from "@/components/ui/separator";
 
 export default function PreventivoView({ idpreventivo }) {
   const [items, setItems] = useState([]);
@@ -111,8 +113,8 @@ export default function PreventivoView({ idpreventivo }) {
         const p = gruppo.preventivo;
 
         return (
-          <div key={id} className="rounded-2xl p-6 shadow-sm">
-            <div className="mb-6 border-b pb-4">
+          <div key={id} className="flex flex-col gap-5 rounded-2xl p-6 shadow-sm">
+            <div className="">
               <h2 className="text-2xl font-bold">Preventivo #{id}</h2>
 
               <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
@@ -171,7 +173,10 @@ export default function PreventivoView({ idpreventivo }) {
                 </div>
               </div>
             </div>
-
+            <div className="flex flex-row justify-end items-center gap-5">
+              <Separator className={`flex-1`}/>
+              <DownloadPreventivoPdfButton idPreventivo={idpreventivo}/>
+            </div>
             <div className="flex flex-col gap-4">
               {gruppo.items.map((item) => (
                 <div
@@ -229,8 +234,7 @@ export default function PreventivoView({ idpreventivo }) {
                 </div>
               ))}
             </div>
-
-            <div className="mt-6 flex justify-end border-t pt-4">
+            <div className="flex justify-end">
               <div className="rounded-xl bg-neutral-950 px-5 py-3 font-bold text-white">
                 Totale preventivo: € {gruppo.totale.toFixed(2)}
               </div>
